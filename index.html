@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <meta name="theme-color" content="#4F7DC9">
   <meta charset="UTF-8">
-  <title>タイトルだよん！</title>
+  <title>【React Nativeハンズオン】簡単・掲示板アプリを作ろう</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Code+Pro:400|Roboto:400,300,400italic,500,700|Roboto+Mono">
   <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://storage.googleapis.com/codelab-elements/codelab-elements.css">
@@ -22,22 +22,494 @@
 <body>
   <google-codelab-analytics gaid="UA-49880327-14"></google-codelab-analytics>
   <google-codelab codelab-gaid=""
-                  id=""
-                  title="タイトルだよん！"
+                  id="react-native-"
+                  title="【React Nativeハンズオン】簡単・掲示板アプリを作ろう"
                   environment="web"
                   feedback-link="">
     
-      <google-codelab-step label="見出しだよん" duration="0">
-        <h2 is-upgraded>ああああああああ</h2>
-<p>ああああああ</p>
-<p>タイトルだよん！</p>
+      <google-codelab-step label="まずはこちら" duration="0">
+        <pre><code>// ＊＊＊第１パート ライブラリのインポート
+import React, { useState } from &#34;react&#34;;
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Dimensions,
+  TextInput,
+  Button,
+  KeyboardAvoidingView,
+} from &#34;react-native&#34;;
+
+// ＊＊＊第２パート App関数 画面に描画するためのJSXと、付随する変数・関数を記述
+const App = () =&gt; {
+  return (
+    &lt;View style=&#123;&#123; marginTop: 200 }}&gt;
+      &lt;Text&gt;React Nativeをはじめましょう！！&lt;/Text&gt;
+    &lt;/View&gt;
+  );
+};
+
+// ＊＊＊第３パート スタイリング（装飾）
+const { width, height } = Dimensions.get(&#34;window&#34;);
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  image: {
+    flex: 1,
+    resizeMode: &#34;cover&#34;,
+    alignItems: &#34;center&#34;,
+  },
+  boxes: {
+    marginTop: 30,
+    height: height - 85,
+  },
+  box: {
+    backgroundColor: &#34;white&#34;,
+    width: width - 40,
+    paddingVertical: 15,
+    paddingHorizontal: 15,
+    borderRadius: 5,
+    shadowColor: &#34;black&#34;,
+    shadowOpacity: 0.4,
+    shadowOffset: { width: 3, height: 3 },
+    marginBottom: 10,
+  },
+  nameAndTime: {
+    flexDirection: &#34;row&#34;,
+    marginBottom: 7,
+  },
+  name: {
+    fontWeight: &#34;bold&#34;,
+  },
+  time: {
+    color: &#34;#666&#34;,
+    marginLeft: 20,
+  },
+  footer: {
+    backgroundColor: &#34;white&#34;,
+    width: &#34;100%&#34;,
+    height: 55,
+    flexDirection: &#34;row&#34;,
+    justifyContent: &#34;space-around&#34;,
+    alignItems: &#34;center&#34;,
+  },
+  input: {
+    height: 45,
+    width: 250,
+    paddingHorizontal: 10,
+    backgroundColor: &#34;#e4fbff&#34;,
+    borderColor: &#34;#00cbe9&#34;,
+    borderWidth: 0.5,
+    borderRadius: 5,
+  },
+});
+
+export default App;
+</code></pre>
 
 
       </google-codelab-step>
     
-      <google-codelab-step label="見出しだよん" duration="0">
-        <h2 is-upgraded>ああああああああ</h2>
-<p>ああああああ</p>
+      <google-codelab-step label="ImageBackgroundタグ" duration="0">
+        <pre><code>const App = () =&gt; {
+  return (
+    &lt;ImageBackground
+      source=&#123;&#123;
+        uri:
+          &#34;https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_6bUgaq3AmWHEimKY5a7ctPIIAa_ggiQe9Q&amp;usqp=CAU&#34;,
+      }}
+      style={styles.image}
+    &gt;&lt;/ImageBackground&gt;
+  );
+};
+</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="Viewタグ・Textタグ" duration="0">
+        <pre><code>const App = () =&gt; {
+  return (
+    &lt;ImageBackground
+      source=&#123;&#123;
+        uri:
+          &#34;https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_6bUgaq3AmWHEimKY5a7ctPIIAa_ggiQe9Q&amp;usqp=CAU&#34;,
+      }}
+      style={styles.image}
+    &gt;
+      //＊＊＊１ 下のように、追加
+      &lt;ScrollView style={styles.boxes}&gt;
+        &lt;View style={styles.box}&gt;
+          &lt;View style={styles.nameAndTime}&gt;
+            &lt;Text style={styles.name}&gt;岩﨑一朗&lt;/Text&gt;
+            &lt;Text style={styles.time}&gt;2020/10/31 14:00&lt;/Text&gt;
+          &lt;/View&gt;
+          &lt;Text&gt;Reactは楽しい！&lt;/Text&gt;
+        &lt;/View&gt;
+      &lt;/ScrollView&gt;
+      //＊＊＊１ ここまで
+    &lt;/ImageBackground&gt;
+  );
+};</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="TextInputタグ・Buttonタグ" duration="0">
+        <pre><code>const App = () =&gt; {
+  return (
+    &lt;ImageBackground
+      source=&#123;&#123;
+        uri:
+          &#34;https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_6bUgaq3AmWHEimKY5a7ctPIIAa_ggiQe9Q&amp;usqp=CAU&#34;,
+      }}
+      style={styles.image}
+    &gt;
+      &lt;ScrollView style={styles.boxes}&gt;
+        &lt;View style={styles.box}&gt;
+          &lt;View style={styles.nameAndTime}&gt;
+            &lt;Text style={styles.name}&gt;岩﨑一朗&lt;/Text&gt;
+            &lt;Text style={styles.time}&gt;2020/10/31 14:00&lt;/Text&gt;
+          &lt;/View&gt;
+          &lt;Text&gt;Reactは楽しい！&lt;/Text&gt;
+        &lt;/View&gt;
+      &lt;/ScrollView&gt;
+      //＊＊＊１ 下のように、追加
+      &lt;View style={styles.footer}&gt;
+        &lt;TextInput style={styles.input}&gt;&lt;/TextInput&gt;
+        &lt;Button title=&#34;送信&#34; color=&#34;#00cbe9&#34;&gt;&lt;/Button&gt;
+      &lt;/View&gt;
+      //＊＊＊１ ここまで
+    &lt;/ImageBackground&gt;
+  );
+};</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="mapで繰り返し処理" duration="0">
+        <pre><code>const App = () =&gt; {
+  // ＊＊＊１ 下のように、配列messageDataを定義
+  const messageData = [
+    {
+      message: &#34;何食べたの！？&#34;,
+      name: &#34;匿名さん&#34;,
+      time: &#34;2020/9/19 15:30&#34;,
+    },
+    {
+      message: &#34;ラーメンと味噌カツ！&#34;,
+      name: &#34;匿名さん&#34;,
+      time: &#34;2020/9/19 15:30&#34;,
+    },
+    {
+      message: &#34;Uber Eatsで頼んだ！&#34;,
+      name: &#34;匿名さん&#34;,
+      time: &#34;2020/9/19 15:30&#34;,
+    },
+  ];
+  // ＊＊＊１ ここまで
+
+  return (
+    &lt;ImageBackground
+      source=&#123;&#123;
+        uri:
+          &#34;https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_6bUgaq3AmWHEimKY5a7ctPIIAa_ggiQe9Q&amp;usqp=CAU&#34;,
+      }}
+      style={styles.image}
+    &gt;
+      &lt;ScrollView style={styles.boxes}&gt;
+        // ＊＊＊２ 下のように、ScrollViewの中を書き換え
+        {messageData.map((data) =&gt; {
+          return (
+            &lt;View style={styles.box}&gt;
+              &lt;View style={styles.nameAndTime}&gt;
+                &lt;Text style={styles.name}&gt;{data.name}&lt;/Text&gt;
+                &lt;Text style={styles.time}&gt;{data.time}&lt;/Text&gt;
+              &lt;/View&gt;
+              &lt;Text&gt;{data.message}&lt;/Text&gt;
+            &lt;/View&gt;
+          );
+        })}
+        // ＊＊＊２ ここまで
+      &lt;/ScrollView&gt;
+      &lt;View style={styles.footer}&gt;
+        &lt;TextInput style={styles.input}&gt;&lt;/TextInput&gt;
+        &lt;Button title=&#34;送信&#34; color=&#34;#00cbe9&#34;&gt;&lt;/Button&gt;
+      &lt;/View&gt;
+    &lt;/ImageBackground&gt;
+  );
+};</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="KeyboardAvoidingViewタグ" duration="0">
+        <pre><code> return (
+   // ＊＊＊１ 下のように、KeyboardAvoidingViewを設置
+   &lt;KeyboardAvoidingView behavior={&#34;padding&#34;} style={styles.container}&gt;
+     &lt;ImageBackground
+       source=&#123;&#123;
+         uri:
+           &#34;https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_6bUgaq3AmWHEimKY5a7ctPIIAa_ggiQe9Q&amp;usqp=CAU&#34;,
+       }}
+       style={styles.image}
+     &gt;
+       &lt;ScrollView style={styles.boxes}&gt;
+         {messageData.map((data) =&gt; {
+           return (
+             &lt;View style={styles.box}&gt;
+               &lt;View style={styles.nameAndTime}&gt;
+                 &lt;Text style={styles.name}&gt;{data.name}&lt;/Text&gt;
+                 &lt;Text style={styles.time}&gt;{data.time}&lt;/Text&gt;
+               &lt;/View&gt;
+               &lt;Text&gt;{data.message}&lt;/Text&gt;
+             &lt;/View&gt;
+           );
+         })}
+       &lt;/ScrollView&gt;
+       &lt;View style={styles.footer}&gt;
+         &lt;TextInput style={styles.input}&gt;&lt;/TextInput&gt;
+         &lt;Button title=&#34;送信&#34; color=&#34;#00cbe9&#34;&gt;&lt;/Button&gt;
+       &lt;/View&gt;
+     &lt;/ImageBackground&gt;
+   // ＊＊＊２ 下のように、閉じタグを設置
+   &lt;/KeyboardAvoidingView&gt;
+ );</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="useState 〜ステートの利用〜" duration="0">
+        <pre><code>const App = () =&gt; {
+  const messageData = [
+    {
+      message: &#34;何食べたの！？&#34;,
+      name: &#34;匿名さん&#34;,
+      time: &#34;2020/9/19 15:30&#34;,
+    },
+    {
+      message: &#34;ラーメンと味噌カツ！&#34;,
+      name: &#34;匿名さん&#34;,
+      time: &#34;2020/9/19 15:30&#34;,
+    },
+    {
+      message: &#34;Uber Eatsで頼んだ！&#34;,
+      name: &#34;匿名さん&#34;,
+      time: &#34;2020/9/19 15:30&#34;,
+    },
+  ];
+
+  //＊＊＊１ 下のように、useStateを用いてmessageステート（変数）を定義
+  const [message, setMessage] = useState(&#34;&#34;);
+
+  return (
+    &lt;KeyboardAvoidingView behavior={&#34;padding&#34;} style={styles.container}&gt;
+      &lt;ImageBackground
+        source=&#123;&#123;
+          uri:
+            &#34;https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_6bUgaq3AmWHEimKY5a7ctPIIAa_ggiQe9Q&amp;usqp=CAU&#34;,
+        }}
+        style={styles.image}
+      &gt;
+        &lt;ScrollView style={styles.boxes}&gt;
+          {messageData.map((data) =&gt; {
+            return (
+              &lt;View style={styles.box}&gt;
+                &lt;View style={styles.nameAndTime}&gt;
+                  &lt;Text style={styles.name}&gt;{data.name}&lt;/Text&gt;
+                  &lt;Text style={styles.time}&gt;{data.time}&lt;/Text&gt;
+                &lt;/View&gt;
+                &lt;Text&gt;{data.message}&lt;/Text&gt;
+              &lt;/View&gt;
+            );
+          })}
+        &lt;/ScrollView&gt;
+        &lt;View style={styles.footer}&gt;
+          //＊＊＊２ 下のように、TextInputタグのプロパティを追加
+          &lt;TextInput
+            value={message}
+            onChangeText={(text) =&gt; setMessage(text)}
+            style={styles.input}
+          &gt;&lt;/TextInput&gt;
+          //＊＊＊２ ここまで
+          &lt;Button title=&#34;送信&#34; color=&#34;#00cbe9&#34;&gt;&lt;/Button&gt;
+        &lt;/View&gt;
+      &lt;/ImageBackground&gt;
+    &lt;/KeyboardAvoidingView&gt;
+  );
+};</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="onPressプロパティとステートの連携・下準備" duration="0">
+        <pre><code>const App = () =&gt; {
+  //＊＊＊１ 下のコメントアウト部分の、messageDataを消す（useState初期値に移動）
+  // const messageData = [
+  //   {
+  //     message: &#34;何食べたの！？&#34;,
+  //     name: &#34;匿名さん&#34;,
+  //     time: &#34;2020/9/19 15:30&#34;,
+  //   },
+  //   {
+  //     message: &#34;ラーメンと味噌カツ！&#34;,
+  //     name: &#34;匿名さん&#34;,
+  //     time: &#34;2020/9/19 15:30&#34;,
+  //   },
+  //   {
+  //     message: &#34;Uber Eatsで頼んだ！&#34;,
+  //     name: &#34;匿名さん&#34;,
+  //     time: &#34;2020/9/19 15:30&#34;,
+  //   },
+  // ];
+
+  const [message, setMessage] = useState(&#34;&#34;);
+  //＊＊＊２ 下のように、messageDataステートを定義
+  const [messageData, setMessageData] = useState([
+    {
+      message: &#34;何食べたの！？&#34;,
+      name: &#34;匿名さん&#34;,
+      time: &#34;2020/9/19 15:30&#34;,
+    },
+    {
+      message: &#34;ラーメンと味噌カツ！&#34;,
+      name: &#34;匿名さん&#34;,
+      time: &#34;2020/9/19 15:30&#34;,
+    },
+    {
+      message: &#34;Uber Eatsで頼んだ！&#34;,
+      name: &#34;匿名さん&#34;,
+      time: &#34;2020/9/19 15:30&#34;,
+    },
+  ]);
+  //＊＊＊２ ここまで
+
+  return (
+    &lt;KeyboardAvoidingView behavior={&#34;padding&#34;} style={styles.container}&gt;
+      &lt;ImageBackground
+        source=&#123;&#123;
+          uri:
+            &#34;https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_6bUgaq3AmWHEimKY5a7ctPIIAa_ggiQe9Q&amp;usqp=CAU&#34;,
+        }}
+        style={styles.image}
+      &gt;
+        &lt;ScrollView style={styles.boxes}&gt;
+          {messageData.map((data) =&gt; {
+            return (
+              &lt;View style={styles.box}&gt;
+                &lt;View style={styles.nameAndTime}&gt;
+                  &lt;Text style={styles.name}&gt;{data.name}&lt;/Text&gt;
+                  &lt;Text style={styles.time}&gt;{data.time}&lt;/Text&gt;
+                &lt;/View&gt;
+                &lt;Text&gt;{data.message}&lt;/Text&gt;
+              &lt;/View&gt;
+            );
+          })}
+        &lt;/ScrollView&gt;
+        &lt;View style={styles.footer}&gt;
+          &lt;TextInput
+            value={message}
+            onChangeText={(text) =&gt; setMessage(text)}
+            style={styles.input}
+          &gt;&lt;/TextInput&gt;
+          &lt;Button title=&#34;送信&#34; color=&#34;#00cbe9&#34;&gt;&lt;/Button&gt;
+        &lt;/View&gt;
+      &lt;/ImageBackground&gt;
+    &lt;/KeyboardAvoidingView&gt;
+  );
+};</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="onPressプロパティとステートの連携・本番！" duration="0">
+        <pre><code>const App = () =&gt; {
+  const [message, setMessage] = useState(&#34;&#34;);
+  const [messageData, setMessageData] = useState([
+    {
+      message: &#34;何食べたの！？&#34;,
+      name: &#34;匿名さん&#34;,
+      time: &#34;2020/9/19 15:30&#34;,
+    },
+    {
+      message: &#34;ラーメンと味噌カツ！&#34;,
+      name: &#34;匿名さん&#34;,
+      time: &#34;2020/9/19 15:30&#34;,
+    },
+    {
+      message: &#34;Uber Eatsで頼んだ！&#34;,
+      name: &#34;匿名さん&#34;,
+      time: &#34;2020/9/19 15:30&#34;,
+    },
+  ]);
+
+  //＊＊＊１ 下のように、onPressButton関数を定義
+  const onPressButton = () =&gt; {
+    messageData.push({
+      message: message,
+      name: &#34;匿名さん&#34;,
+      time: &#34;2020/9/19 15:30&#34;,
+    });
+    setMessage(&#34;&#34;);
+  };
+  //＊＊＊１ ここまで
+
+  return (
+    &lt;KeyboardAvoidingView behavior={&#34;padding&#34;} style={styles.container}&gt;
+      &lt;ImageBackground
+        source=&#123;&#123;
+          uri:
+            &#34;https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS_6bUgaq3AmWHEimKY5a7ctPIIAa_ggiQe9Q&amp;usqp=CAU&#34;,
+        }}
+        style={styles.image}
+      &gt;
+        &lt;ScrollView style={styles.boxes}&gt;
+          {messageData.map((data) =&gt; {
+            return (
+              &lt;View style={styles.box}&gt;
+                &lt;View style={styles.nameAndTime}&gt;
+                  &lt;Text style={styles.name}&gt;{data.name}&lt;/Text&gt;
+                  &lt;Text style={styles.time}&gt;{data.time}&lt;/Text&gt;
+                &lt;/View&gt;
+                &lt;Text&gt;{data.message}&lt;/Text&gt;
+              &lt;/View&gt;
+            );
+          })}
+        &lt;/ScrollView&gt;
+        &lt;View style={styles.footer}&gt;
+          &lt;TextInput
+            value={message}
+            onChangeText={(text) =&gt; setMessage(text)}
+            style={styles.input}
+          &gt;&lt;/TextInput&gt;
+          //＊＊＊２ 下のように、ButtonタグにonPressプロパティを追加
+          &lt;Button title=&#34;送信&#34; color=&#34;#00cbe9&#34; onPress={onPressButton}&gt;&lt;/Button&gt;
+        &lt;/View&gt;
+      &lt;/ImageBackground&gt;
+    &lt;/KeyboardAvoidingView&gt;
+  );
+};</code></pre>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="おまけ・Reactの再描画のタイミング" duration="0">
+        <pre><code>  //＊＊＊１ 下のように、messageDataの初期値を空の配列（[]）に書き換え
+  const [messageData, setMessageData] = useState([]);
+
+  const onPressButton = () =&gt; {
+    //＊＊＊２ 下のように、テキスト未入力時にはじく処理を追加
+    if (message == &#34;&#34;) return;
+    messageData.push({
+      message: message,
+      name: &#34;匿名さん&#34;,
+      time: &#34;2020/9/19 15:30&#34;,
+    });
+    setMessage(&#34;&#34;);
+  };</code></pre>
 
 
       </google-codelab-step>
