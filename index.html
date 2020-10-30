@@ -27,8 +27,48 @@
                   environment="web"
                   feedback-link="">
     
-      <google-codelab-step label="まずはこちら" duration="0">
-        <pre><code>// ＊＊＊第１パート ライブラリのインポート
+      <google-codelab-step label="はじめに" duration="0">
+        <table>
+<tr><td colspan="1" rowspan="1"><p><strong>Summary</strong></p>
+</td><td colspan="1" rowspan="1"><p>簡単な掲示板アプリを作成するハンズオンを通じて、React Nativeによるアプリ実装を体験します。</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>URL</strong></p>
+</td><td colspan="1" rowspan="1"><p>react_native_hands_on</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>Category</strong></p>
+</td><td colspan="1" rowspan="1"><p>Web</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>Status</strong></p>
+</td><td colspan="1" rowspan="1"><p>Published</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>Feedback Link</strong></p>
+</td><td colspan="1" rowspan="1"><p>https://github.com/ichiro-iwasaki/react_native_hands_on/issues</p>
+</td></tr>
+<tr><td colspan="1" rowspan="1"><p><strong>Author</strong></p>
+</td><td colspan="1" rowspan="1"><p>Ichiro Iwasaki</p>
+</td></tr>
+</table>
+<h2 is-upgraded><strong>＜本チュートリアルで学ぶこと＞</strong></h2>
+<p>簡単な掲示板アプリの作成を通じて、React Nativeにおける主要な概念や実装イメージを体幹いただきます。</p>
+<h2 is-upgraded><strong>＜開発要件＞</strong></h2>
+<p><strong>インターネットに接続可能なPC</strong></p>
+<p>開発環境Expo Snack ( <a href="https://snack.expo.io/" target="_blank">https://snack.expo.io/</a> ) で作業します。</p>
+
+
+      </google-codelab-step>
+    
+      <google-codelab-step label="ベースのコード" duration="0">
+        <p>それではメッセージを表示させるだけのシンプルなアプリケーションから始めましょう！</p>
+<h2 is-upgraded><strong>＜第１パート ライブラリのインポート＞</strong></h2>
+<p>今回使用するReact Nativeのライブラリをインポートします。</p>
+<h2 is-upgraded><strong>＜第２パート App関数＞</strong></h2>
+<p>App関数に、実際に画面に表示したいコンポーネントを記述していきます。</p>
+<h2 is-upgraded><strong>＜第３パート スタイリング＞</strong></h2>
+<p>色やレイアウトなど見た目のデザインを決定します。今回は理解していなくても問題ありません。</p>
+<h2 is-upgraded><strong>👉実際にコードを書いてみる</strong></h2>
+<p>以下のコードをexpo snackにコピーして、ブラウザ上の表示させてみましょう。</p>
+<p>「React Nativeをはじめましょう！！」と表示されます。</p>
+<pre><code>// ＊＊＊第１パート ライブラリのインポート
 import React, { useState } from &#34;react&#34;;
 import {
   ImageBackground,
@@ -114,7 +154,8 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="ImageBackgroundタグ" duration="0">
-        <pre><code>const App = () =&gt; {
+        <p>&lt;ImageBackground&gt;タグを用いて、背景画像を表示させましょう！</p>
+<pre><code>const App = () =&gt; {
   return (
     &lt;ImageBackground
       source=&#123;&#123;
@@ -131,7 +172,9 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="Viewタグ・Textタグ" duration="0">
-        <pre><code>const App = () =&gt; {
+        <p>&lt;View&gt;タグを用いて、単純な要素を作りましょう！</p>
+<p>&lt;Text&gt;タグを用いて、文字を表示させましょう！</p>
+<pre><code>const App = () =&gt; {
   return (
     &lt;ImageBackground
       source=&#123;&#123;
@@ -159,7 +202,9 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="TextInputタグ・Buttonタグ" duration="0">
-        <pre><code>const App = () =&gt; {
+        <p>&lt;TextInput&gt;タグを用いて、テキスト入力欄を作りましょう！</p>
+<p>&lt;Button&gt;タグを用いて、ボタンを作りましょう！</p>
+<pre><code>const App = () =&gt; {
   return (
     &lt;ImageBackground
       source=&#123;&#123;
@@ -191,7 +236,8 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="mapで繰り返し処理" duration="0">
-        <pre><code>const App = () =&gt; {
+        <p>配列にmapを使用して、配列の中身を一つ一つ処理していきましょう！</p>
+<pre><code>const App = () =&gt; {
   // ＊＊＊１ 下のように、配列messageDataを定義
   const messageData = [
     {
@@ -247,7 +293,8 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="KeyboardAvoidingViewタグ" duration="0">
-        <pre><code> return (
+        <p>&lt;KeyboardAvoidingView&gt;タグを用いて、キーボードに隠れる問題を解消しましょう！</p>
+<pre><code> return (
    // ＊＊＊１ 下のように、KeyboardAvoidingViewを設置
    &lt;KeyboardAvoidingView behavior={&#34;padding&#34;} style={styles.container}&gt;
      &lt;ImageBackground
@@ -283,7 +330,8 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="useState 〜ステートの利用〜" duration="0">
-        <pre><code>const App = () =&gt; {
+        <p>ステートを定義して、フロント側でデータを保持しましょう！</p>
+<pre><code>const App = () =&gt; {
   const messageData = [
     {
       message: &#34;何食べたの！？&#34;,
@@ -346,7 +394,8 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="onPressプロパティとステートの連携・下準備" duration="0">
-        <pre><code>const App = () =&gt; {
+        <p>ボタンを押した時に投稿ができる機能を作るための、下準備をしてください。</p>
+<pre><code>const App = () =&gt; {
   //＊＊＊１ 下のコメントアウト部分の、messageDataを消す（useState初期値に移動）
   // const messageData = [
   //   {
@@ -426,7 +475,8 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="onPressプロパティとステートの連携・本番！" duration="0">
-        <pre><code>const App = () =&gt; {
+        <p>onPressプロパティを用いて、ボタンを押した時の処理を設定しましょう！</p>
+<pre><code>const App = () =&gt; {
   const [message, setMessage] = useState(&#34;&#34;);
   const [messageData, setMessageData] = useState([
     {
@@ -497,7 +547,8 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="おまけ・Reactの再描画のタイミング" duration="0">
-        <pre><code>  //＊＊＊１ 下のように、messageDataの初期値を空の配列（[]）に書き換え
+        <p>文字が入力されていない時には、処理を行わないようにしましょう！</p>
+<pre><code>  //＊＊＊１ 下のように、messageDataの初期値を空の配列（[]）に書き換え
   const [messageData, setMessageData] = useState([]);
 
   const onPressButton = () =&gt; {
