@@ -48,22 +48,35 @@
 </td><td colspan="1" rowspan="1"><p>Ichiro Iwasaki</p>
 </td></tr>
 </table>
-<h2 is-upgraded><strong>＜本チュートリアルで学ぶこと＞</strong></h2>
+<h2 is-upgraded><strong>本チュートリアルで学ぶこと</strong></h2>
 <p>簡単な掲示板アプリの作成を通じて、React Nativeにおける主要な概念や実装イメージを体幹いただきます。</p>
-<h2 is-upgraded><strong>＜開発要件＞</strong></h2>
+<h2 is-upgraded><strong>開発要件</strong></h2>
 <p><strong>インターネットに接続可能なPC</strong></p>
 <p>開発環境Expo Snack ( <a href="https://snack.expo.io/" target="_blank">https://snack.expo.io/</a> ) で作業します。</p>
+<h2 is-upgraded><strong>Expo Snackとは</strong></h2>
+<p>ブラウザ上でソースコードの編集や動作確認ができるサービスです。</p>
+<p>React Nativeを試してみるのに最適です。</p>
+<p>以下の画像のように大きく3つのウィンドウから構成されています。</p>
+<p class="image-container"><img style="width: 601.70px" src="img/f38d433dc01cc8e8.png"></p>
+<p>編集するファイルを選択します。本ガイドでは主にApp.jsを編集していきます。</p>
+<h3 is-upgraded>①ファイル</h3>
+<p>編集するファイルを選択します。本ガイドでは主にApp.jsを編集していきます。</p>
+<h3 is-upgraded>②ソースコード</h3>
+<p>ソースコードを編集します</p>
+<h3 is-upgraded>③出力</h3>
+<p>作成したソースコードの出力が表示されます。</p>
+<p>それでは次のステップから実際にReact Nativeを始めてみましょう！</p>
 
 
       </google-codelab-step>
     
       <google-codelab-step label="ベースのコード" duration="0">
         <p>それではメッセージを表示させるだけのシンプルなアプリケーションから始めましょう！</p>
-<h2 is-upgraded><strong>＜第１パート ライブラリのインポート＞</strong></h2>
+<h2 is-upgraded><strong>第１パート ライブラリのインポート</strong></h2>
 <p>今回使用するReact Nativeのライブラリをインポートします。</p>
-<h2 is-upgraded><strong>＜第２パート App関数＞</strong></h2>
+<h2 is-upgraded><strong>第２パート App関数</strong></h2>
 <p>App関数に、実際に画面に表示したいコンポーネントを記述していきます。</p>
-<h2 is-upgraded><strong>＜第３パート スタイリング＞</strong></h2>
+<h2 is-upgraded><strong>第３パート スタイリング</strong></h2>
 <p>色やレイアウトなど見た目のデザインを決定します。今回は理解していなくても問題ありません。</p>
 <h2 is-upgraded><strong>👉実際にコードを書いてみる</strong></h2>
 <p>以下のコードをexpo snackにコピーして、ブラウザ上の表示させてみましょう。</p>
@@ -154,7 +167,7 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="ImageBackgroundタグ" duration="0">
-        <p>&lt;ImageBackground&gt;タグを用いて、背景画像を表示させましょう！</p>
+        <h2 is-upgraded><strong>👉</strong>ImageBackgroundタグを用いて、背景画像を表示させましょう！</h2>
 <pre><code>const App = () =&gt; {
   return (
     &lt;ImageBackground
@@ -172,8 +185,7 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="Viewタグ・Textタグ" duration="0">
-        <p>&lt;View&gt;タグを用いて、単純な要素を作りましょう！</p>
-<p>&lt;Text&gt;タグを用いて、文字を表示させましょう！</p>
+        <h2 is-upgraded><strong>👉</strong>Viewタグを用いて、単純な要素を、Textタグを用いて、文字を表示させましょう！</h2>
 <pre><code>const App = () =&gt; {
   return (
     &lt;ImageBackground
@@ -202,8 +214,7 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="TextInputタグ・Buttonタグ" duration="0">
-        <p>&lt;TextInput&gt;タグを用いて、テキスト入力欄を作りましょう！</p>
-<p>&lt;Button&gt;タグを用いて、ボタンを作りましょう！</p>
+        <h2 is-upgraded><strong>👉</strong>TextInputタグを用いて、テキスト入力欄を、Buttonタグを用いて、ボタンを作りましょう！</h2>
 <pre><code>const App = () =&gt; {
   return (
     &lt;ImageBackground
@@ -236,7 +247,7 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="mapで繰り返し処理" duration="0">
-        <p>配列にmapを使用して、配列の中身を一つ一つ処理していきましょう！</p>
+        <h2 is-upgraded>👉配列にmapを使用して、配列の中身を一つ一つ処理していきましょう！</h2>
 <pre><code>const App = () =&gt; {
   // ＊＊＊１ 下のように、配列messageDataを定義
   const messageData = [
@@ -293,7 +304,7 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="KeyboardAvoidingViewタグ" duration="0">
-        <p>&lt;KeyboardAvoidingView&gt;タグを用いて、キーボードに隠れる問題を解消しましょう！</p>
+        <h2 is-upgraded>👉KeyboardAvoidingViewタグを用いて、キーボードに隠れる問題を解消しましょう！</h2>
 <pre><code> return (
    // ＊＊＊１ 下のように、KeyboardAvoidingViewを設置
    &lt;KeyboardAvoidingView behavior={&#34;padding&#34;} style={styles.container}&gt;
@@ -330,7 +341,7 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="useState 〜ステートの利用〜" duration="0">
-        <p>ステートを定義して、フロント側でデータを保持しましょう！</p>
+        <h2 is-upgraded>👉ステートを定義して、フロント側でデータを保持しましょう！</h2>
 <pre><code>const App = () =&gt; {
   const messageData = [
     {
@@ -394,7 +405,7 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="onPressプロパティとステートの連携・下準備" duration="0">
-        <p>ボタンを押した時に投稿ができる機能を作るための、下準備をしてください。</p>
+        <h2 is-upgraded>👉ボタンを押した時に投稿ができる機能を作るための、下準備をしてください。</h2>
 <pre><code>const App = () =&gt; {
   //＊＊＊１ 下のコメントアウト部分の、messageDataを消す（useState初期値に移動）
   // const messageData = [
@@ -475,7 +486,7 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="onPressプロパティとステートの連携・本番！" duration="0">
-        <p>onPressプロパティを用いて、ボタンを押した時の処理を設定しましょう！</p>
+        <h2 is-upgraded>👉onPressプロパティを用いて、ボタンを押した時の処理を設定しましょう！</h2>
 <pre><code>const App = () =&gt; {
   const [message, setMessage] = useState(&#34;&#34;);
   const [messageData, setMessageData] = useState([
@@ -547,7 +558,7 @@ export default App;
       </google-codelab-step>
     
       <google-codelab-step label="おまけ・Reactの再描画のタイミング" duration="0">
-        <p>文字が入力されていない時には、処理を行わないようにしましょう！</p>
+        <h2 is-upgraded>👉文字が入力されていない時には、処理を行わないようにしましょう！</h2>
 <pre><code>  //＊＊＊１ 下のように、messageDataの初期値を空の配列（[]）に書き換え
   const [messageData, setMessageData] = useState([]);
 
